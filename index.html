@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Elektroland Savunma</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script>
+    var TxtType = function (el, toRotate, period) {
+      this.toRotate = toRotate;
+      this.el = el;
+      this.loopNum = 0;
+      this.period = parseInt(period, 10) || 2000;
+      this.txt = '';
+      this.tick();
+      this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function () {
+      var i = this.loopNum % this.toRotate.length;
+      var fullTxt = this.toRotate[i];
+
+      if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+      } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+      }
+
+      this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+
+      var that = this;
+      var delta = 200 - Math.random() * 100;
+
+      if (this.isDeleting) { delta /= 2; }
+
+      if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+      } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+      }
+
+      setTimeout(function () {
+        that.tick();
+      }, delta);
+    };
+
+    window.onload = function () {
+      var elements = document.getElementsByClassName('typewrite');
+      for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+          new TxtType(elements[i], JSON.parse(toRotate), period);
+        }
+      }
+      // INJECT CSS
+      var css = document.createElement("style");
+      css.type = "text/css";
+      css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+      document.body.appendChild(css);
+    };
+  </script>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'tr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+  </script>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto">
+        <a href="index.html" class="scrollto"><img src="assets/img/logo.png" alt="" title=""></a>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="#about">HAKKIMIZDA</a></li>
+          <li class="dropdown"><a href="#speakers"><span>ÜRÜNLERİMİZ VE ÇÖZÜMLERİMİZ</span> <i
+                class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown"><a href="#"><span>EOD/IEDD</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="maxu.html">MAXU-I</a></li>
+                  <li><a href="fbox.html">FBOX</a></li>
+                  <li><a href="xray.html">X-RAY</a></li>
+                  <li><a href="disruptor.html">DISRUPTOR</a></li>
+                  <li><a href="levent.html">LEVENT</a></li>
+                  <li><a href="etr.html">ETR-I </a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>UGV</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="acrob.html">ACROB</a></li>
+                  <li><a href="hancer.html">HANÇER</a></li>
+                  <li><a href="bogac.html">BOĞAÇ</a></li>
+                  <li><a href="nat.html">NAT-II</a></li>
+                </ul>
+              </li>
+              <li class="dropdown"><a href="#"><span>MOBILE PLATFORMS</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="egerov.html">EGEROV</a></li>
+                  <li><a href="tmr1hound.html">TMR-I HOUND</a></li>
+                  <li><a href="tmr1dincer.html">TMR-I DİNÇER</a></li>
+                  <li><a href="tmr2.html">TMR-II TOUGH</a></li>
+                  <li><a href="minirov.html">6X6 MINIROV</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <!-- <li><a class="nav-link scrollto" href="#speakers">ROBOTLARIMIZ</a></li> -->
+          <li><a class="nav-link scrollto" href="#gallery">HABERLER</a></li>
+          <li><a class="nav-link scrollto" href="#contact">İLETİŞİM</a></li>
+          <li><a class="nav-link scrollto" href="kvkk.html">KVKK</a></li>
+          <li>
+            <div id="google_translate_element"></div>
+          </li>
+
+
+
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
+      <h1 class="mb-4 pb-0">Elektroland Savunma Sanayİ A.Ş.</h1>
+      <!-- <div class="typewriter">
+      </div> -->
+
+      <p> <a href="" class="typewrite" data-period="1000"
+          data-type='[ "Amacımız Bizi Koruyanları Korumak","Dünya ile Eş Zamanlı Gelişen Teknoloji", "Güçlü ve Yetenekli Tasarımlar", "Önceliğimiz Güvenlik"]'>
+          <span class="wrap"></span>
+        </a>
+      </p>
+      <br>
+      <a href="https://www.youtube.com/watch?v=Zjk9KSyweVo" class="glightbox play-btn mb-4"></a>
+      <a href="#about" class="about-btn scrollto">Hakkımızda</a>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about">
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-105" style="align-items: center;">
+            <h2>Hakkımızda</h2>
+            <p>
+              Elektroland, 1996 yılında elektronik kart onarım ve tersine mühendislik merkezi olarak kurulmuştur.2000'li
+              yılların başına kadar, savunma sanayi ve anayurt güvenliği ile ilgili mevcut ekipmanların revizyonu
+              sağlanmıştır. Daha sonraki yıllarda artan tasarım ve üretim kapasitesi ile birlikte uzaktan kumandalı
+              taşınabilir röntgen kontrol sistemi ve uzaktan kumandalı robotik araçlar gibi benzersiz ürünler
+              geliştirilerek TSK ve EGM bünyesindeki uzman personelin kullanımına sunulmuştur.
+              <br>
+              <br>
+              Üretim faaliyetlerinin yanısıra mekatronik Araştırma ve Geliştirme (Ar-Ge), Elektroland'ın temel
+              faaliyetleri arasında yer almaktadır. Yangınla Mücadele, Mühimmat İmhası (EOD) ve El Yapımı Patlayıcı
+              (EYP) imhası dahil olmak üzere tüm bomba imha ekipmanları ve donanımları için temel araştırmaların ve
+              yerli ve milli ürünlerin hayata geçirilmesinde son derece hayati rol oynamaktadır. <br>
+
+            </p>
+          </div>
+          <div class="col-lg-50">
+            <br>
+            <br>
+
+            <h2>Misyonumuz</h2>
+            <p>
+              Elektroland, 1996 yılında elektronik kart onarım ve tersine mühendislik merkezi olarak kurulmuştur.2000'li
+              yılların başına kadar, savunma sanayi ve anayurt güvenliği ile ilgili mevcut ekipmanların revizyonu
+              sağlanmıştır. Daha sonraki yıllarda artan tasarım ve üretim kapasitesi ile birlikte uzaktan kumandalı
+              taşınabilir röntgen kontrol sistemi ve uzaktan kumandalı robotik araçlar gibi benzersiz ürünler
+              geliştirilerek TSK ve EGM bünyesindeki uzman personelin kullanımına sunulmuştur.
+            </p>
+          </div>
+          <div class="col-lg-50">
+            <br>
+
+            <h2>Vizyonumuz</h2>
+            <p>
+              Elektroland, 1996 yılında elektronik kart onarım ve tersine mühendislik merkezi olarak kurulmuştur.2000'li
+              yılların başına kadar, savunma sanayi ve anayurt güvenliği ile ilgili mevcut ekipmanların revizyonu
+              sağlanmıştır. Daha sonraki yıllarda artan tasarım ve üretim kapasitesi ile birlikte uzaktan kumandalı
+              taşınabilir röntgen kontrol sistemi ve uzaktan kumandalı robotik araçlar gibi benzersiz ürünler
+              geliştirilerek TSK ve EGM bünyesindeki uzman personelin kullanımına sunulmuştur.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End About Section -->
+
+    <section id="speakers">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>ÜRÜNLERİMİZ VE ÇÖZÜMLERİMİZ</h2>
+        </div>
+
+        <div class="row">
+
+
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+              <img src="assets/img/robot/1.jpg" alt="Speaker 1" class="img-fluid">
+              <div class="details">
+                <h3><a href="acrob.html">ACROB UGV</a></h3>
+                <p>Atılabilir, İnsansız, Mini Keşif-Gözlemleme Kara Aracı</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+              <img src="assets/img/robot/2.jpg" alt="Speaker 2" class="img-fluid">
+              <div class="details">
+                <h3><a href="hancer.html">HANÇER UGV</a></h3>
+                <p>Düşmanın Bağrına Hançer Saplanacak</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/3.jpg" alt="Speaker 3" class="img-fluid">
+              <div class="details">
+                <h3><a href="bogac.html">BOĞAÇ UGV</a></h3>
+                <p>Türkiye'nin Milli "Teknolojik Katırı"</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+              <img src="assets/img/robot/4.jpg" alt="Speaker 4" class="img-fluid">
+              <div class="details">
+                <h3><a href="nat.html">NAT-II UGV</a></h3>
+                <p>Ülkeyi Koruyanların Koruması</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+              <img src="assets/img/robot/5.jpg" alt="Speaker 5" class="img-fluid">
+              <div class="details">
+                <h3><a href="egerov.html">EGEROV</a></h3>
+                <p>Mini, Keşif Gözlem Aracı</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/6.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="tmr1hound.html">TMR-I HOUND</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/7.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="tmr1dincer.html">TMR-I DİNÇER</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/8.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="tmr2.html">TMR-II TOUGH</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/9.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="minirov.html">6X6 MINIROV</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="100">
+              <img src="assets/img/robot/4.jpg" alt="Speaker 4" class="img-fluid">
+              <div class="details">
+                <h3><a href="maxu.html">MAXU-I</a></h3>
+                <p>Ülkeyi Koruyanların Koruması</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200">
+              <img src="assets/img/robot/5.jpg" alt="Speaker 5" class="img-fluid">
+              <div class="details">
+                <h3><a href="fbox.html">FBOX</a></h3>
+                <p>Mini, Keşif Gözlem Aracı</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/6.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="xray.html">X-RAY</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/7.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="disruptor.html">DISRUPTOR</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/8.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="levent.html">LEVENT</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="300">
+              <img src="assets/img/robot/9.jpg" alt="Speaker 6" class="img-fluid">
+              <div class="details">
+                <h3><a href="etr.html">ETR-I</a></h3>
+                <p>Bomba İmha Robotu</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </section>
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery">
+
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>HABERLER</h2>
+        </div>
+      </div>
+
+      <div class="gallery-slider swiper">
+        <div class="swiper-wrapper align-items-center">
+          <div class="swiper-slide"><a
+              href="https://www.yeniakit.com.tr/foto-galeri/turk-bomba-imha-robotlarina-afrika-gorevi-40949"
+              class="gallery-lightbox"><img src="assets/img/gallery/1.jpg" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a
+              href="https://heybiliro.blogspot.com/2019/12/yerli-bomba-imha-kazanlar-testleri.html"
+              class="gallery-lightbox"><img src="assets/img/gallery/2.png" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a
+              href="https://www.avrupaninsesi.com/turk-insansiz-kara-araclari-afrika-kitasi-na-cikacak-17487"
+              class="gallery-lightbox"><img src="assets/img/gallery/3.jpg" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a
+              href="https://www.savunmasanayi.org/fabrika-resmi-olarak-acilmadi-ancak-tesisten-ilk-ihracat-gerceklesti/"
+              class="gallery-lightbox"><img src="assets/img/gallery/4.jpg" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a
+              href="https://www.avrupaninsesi.com/henuz-resmi-olarak-acilmayan-robot-fabrikasindan-banglades-e-ihracat-17517"
+              class="gallery-lightbox"><img src="assets/img/gallery/5.png" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a href="youtube.com/watch?v=indgj75GRq0" class="gallery-lightbox"><img
+                src="assets/img/gallery/6.jpg" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a
+              href="https://www.defenceturk.net/covid-19-ile-mucadeleye-elektroland-defence-ve-odtu-ivme-rden-robotlu-destek"
+              class="gallery-lightbox"><img src="assets/img/gallery/7.jpg" class="img-fluid" alt=""></a></div>
+          <div class="swiper-slide"><a
+              href="https://www.savunmasanayi.org/elektroland-defence-robotik-alanda-turkiyenin-en-cok-patent-faydali-basvurusu-yapan-savunma-firmasi/"
+              class="gallery-lightbox"><img src="assets/img/gallery/8.jpg" class="img-fluid" alt=""></a></div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </section>
+
+
+
+    <section id="contact" class="section-bg">
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>Bİze Ulaşın</h2>
+
+        </div>
+
+        <div class="row contact-info">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3065.8530041470235!2d32.680175315693006!3d39.78785410156835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3157d60ab4b47%3A0xce530414b1c56e13!2sElektroland%20Savunma%20Sanayi%20A.%C5%9E.!5e0!3m2!1str!2str!4v1664363234112!5m2!1str!2st"
+            frameborder="0" style="border:0" height="250" allowfullscreen></iframe>
+          <div class="col-md-4">
+            <div class="contact-address">
+              <i class="bi bi-geo-alt"></i>
+              <h3>Adres</h3>
+              <address>İncek, Yıldırım Akbulut Cd. No:18, 06830 Gölbaşı/Ankara</address>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-phone">
+              <i class="bi bi-phone"></i>
+              <h3>Telefon Numarası</h3>
+              <p><a href="tel:+903124601622">+90 312 460 16 22</a></p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="contact-email">
+              <i class="bi bi-envelope"></i>
+              <h3>E-Mail</h3>
+              <p><a href="mailto:info@elektrolanddefence.com">info@elektrolanddefence.com</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top" style="background-color: #000000;">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-5 col-md-1 footer-info" style="margin-left: 0px;">
+            <img src="assets/img/logo.png" alt="Elektroland">
+          </div>
+
+
+          <div class="col-lg-5 col-md-1 footer-contact" style="margin-left: 100px;">
+            <h4>İletİşİm</h4>
+            <p>
+              İncek, Yıldırım Akbulut Cd. <br> No:18, 06830 Gölbaşı/Ankara<br>
+              <strong>Telefon Numarası:</strong> +90 312 460 16 22<br>
+              <strong>E-Mail:</strong> info@elektrolanddefence.com<br>
+            </p>
+            <div class="social-links">
+              <a href="https://twitter.com/ElektrolandD?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
+              <a href="https://www.facebook.com/elektrolanddefence/" class="facebook" target="_blank"><i
+                  class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/elektrolanddefence/" class="instagram" target="_blank"><i
+                  class="bi bi-instagram"></i></a>
+              <a href="https://tr.linkedin.com/company/elektroland-defence" class="linkedin" target="_blank"><i
+                  class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        Elektroland Savunma Sanayi A.Ş &copy; Tüm Hakları Saklıdır
+      </div>
+    </div>
+
+
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
